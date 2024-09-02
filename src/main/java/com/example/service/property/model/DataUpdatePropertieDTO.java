@@ -1,4 +1,4 @@
-package com.example.service.property.modal;
+package com.example.service.property.model;
 import com.example.service.property.domain.ContractType;
 import com.example.service.property.domain.PropertyType;
 import jakarta.validation.Valid;

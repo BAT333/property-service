@@ -1,4 +1,4 @@
-package com.example.service.property.modal;
+package com.example.service.property.model;
 
 import java.math.BigDecimal;
 

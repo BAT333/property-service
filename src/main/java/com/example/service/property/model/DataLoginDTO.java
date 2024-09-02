@@ -1,4 +1,4 @@
-package com.example.service.property.modal;
+package com.example.service.property.model;
 
 public record DataLoginDTO(
         String login,

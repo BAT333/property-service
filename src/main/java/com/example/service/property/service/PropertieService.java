@@ -2,9 +2,9 @@ package com.example.service.property.service;
 
 import com.example.service.property.config.exceptions.PropertieExceptions;
 import com.example.service.property.domain.Propertie;
-import com.example.service.property.modal.DataPropertie;
-import com.example.service.property.modal.DataPropertieDTO;
-import com.example.service.property.modal.DataUpdatePropertieDTO;
+import com.example.service.property.model.DataPropertie;
+import com.example.service.property.model.DataPropertieDTO;
+import com.example.service.property.model.DataUpdatePropertieDTO;
 import com.example.service.property.repository.PropertieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

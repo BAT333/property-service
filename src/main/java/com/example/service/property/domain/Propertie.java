@@ -1,7 +1,7 @@
 package com.example.service.property.domain;
 
-import com.example.service.property.modal.DataPropertieDTO;
-import com.example.service.property.modal.DataUpdatePropertieDTO;
+import com.example.service.property.model.DataPropertieDTO;
+import com.example.service.property.model.DataUpdatePropertieDTO;
 import jakarta.persistence.*;
 import lombok.*;
 

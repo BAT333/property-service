@@ -1,6 +1,6 @@
 package com.example.service.property.domain;
 
-import com.example.service.property.modal.DataLoginDTO;
+import com.example.service.property.model.DataLoginDTO;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
