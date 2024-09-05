@@ -20,19 +20,21 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityCofig {
     @Autowired
     private SecurityFilter filter;
+    @Autowired
+    private GatewayFilter gatewayFilter;
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity security){
         try {
             return security.csrf(AbstractHttpConfigurer::disable)
-                    .sessionManagement(http->http.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                    .authorizeHttpRequests(authorization->authorization
-                            .requestMatchers(HttpMethod.POST,"auth").permitAll().
-                            requestMatchers(HttpMethod.POST,"auth/register").permitAll()
-                            .requestMatchers("propertie","propertie/**").permitAll()
-                            .requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll().
-                            anyRequest().permitAll()
-                    )
+                    .sessionManagement(https-> https.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+
+                    .authorizeHttpRequests(authoriza->
+                            authoriza.
+                                    requestMatchers("/public/**").permitAll().
+                                    requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll().
+                                    anyRequest().permitAll())
                     .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)
+                    .addFilterBefore(gatewayFilter, UsernamePasswordAuthenticationFilter.class)
                     .build();
         } catch (Exception e) {
             throw new RuntimeException(e);
