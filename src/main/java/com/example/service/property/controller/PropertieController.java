@@ -19,6 +19,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RestController
 @RequestMapping("/api/propertie")
 @SecurityRequirement(name = "bearer-key")
+@CrossOrigin(origins = "http://172.27.64.1:8082")
 public class PropertieController {
     @Autowired
     private PropertieService service;
