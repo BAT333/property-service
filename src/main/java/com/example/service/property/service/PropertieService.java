@@ -6,24 +6,22 @@ import com.example.service.property.model.DataPropertie;
 import com.example.service.property.model.DataPropertieDTO;
 import com.example.service.property.model.DataUpdatePropertieDTO;
 import com.example.service.property.repository.PropertieRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class PropertieService {
     @Autowired
     private
     PropertieRepository repository;
-/*
-    @Autowired
-    private
-    ProprietorRepository proprietorRepository;
- */
 
     public DataPropertie registerPropertie(DataPropertieDTO dto, Long id) {
-        //validar que casa ja não esta registrada
+        log.info("register a user property: {}", id );
+        //validar que casa ja não esta registrada, se proritario exite tbm
       /*
         if(!proprietorRepository.existsByIdAndActiveTrue(id)){
             throw new PropertieExceptions();
@@ -37,6 +35,7 @@ public class PropertieService {
     }
 
     public Page<DataPropertie> listPropertie(Pageable pageable, Long id) {
+        log.info("list all user properties: {}", id);
  /*
         if(!proprietorRepository.existsByIdAndActiveTrue(id)){
             throw new PropertieExceptions();
@@ -50,7 +49,10 @@ public class PropertieService {
     }
 
     public DataPropertie updatePropertie(DataUpdatePropertieDTO dto, Long id) {
+        log.info("updating property information: {}", id);
+
         if(!repository.existsByIdAndActiveTrue(id)){
+            log.error("error updating property information");
             throw new PropertieExceptions();
         }
 
@@ -63,8 +65,9 @@ public class PropertieService {
     }
 
     public void deletePropertie(Long id) {
-
+        log.info("deleting the property: {}", id);
         if(!repository.existsByIdAndActiveTrue(id)){
+            log.error("error deleting property");
             throw new PropertieExceptions();
         }
 
